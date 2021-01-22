@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package
+  name="epi"
+  displayName="Epidemic Base Package"
+  version="1.0.0">
+  <transformers>
+    <transformer
+      name="Primary"
+      isPrimary="True"
+      displayName="Epidemic"
+      className="SyncroSim.StochasticTime.StochasticTimeNOOPTransformer"
+      classAssembly="SyncroSim.StochasticTime"
+      configurationSheet="RunControl">
+      <include>
+        <transformer name="corestime_Runtime"/>
+      </include>
+      <datafeeds>
+        <datafeed name="Variable" displayName="Variable" dataScope="Project">
+          <datasheets>
+            <datasheet name="Variable" displayName="Variable" valueMember="VariableID" displayMember="Name" filter="IsInternal IS NULL OR IsInternal=0" className="SyncroSim.Epi.VariableDataSheet" classAssembly="SyncroSim.Epi">
+              <columns>
+                <column name="VariableID" dataType="Integer" isPrimary="True"/>
+                <column name="ProjectID" dataType="Integer"/>
+                <column name="Name" dataType="String"/>
+                <column name="Description" dataType="String"/>
+                <column name="IsInternal" dataType="Boolean" isVisible="False"/>
+              </columns>
+              <defaultRecords>
+                <record columns="Name|IsInternal" values="Data-Cases|-1"/>
+                <record columns="Name|IsInternal" values="Data-Deaths|-1"/>
+                <record columns="Name|IsInternal" values="Data-Population|-1"/>
+                <record columns="Name|IsInternal" values="Model-Cases|-1"/>
+                <record columns="Name|IsInternal" values="Model-Deaths|-1"/>
+              </defaultRecords>
+            </datasheet>
+          </datasheets>
+        </datafeed>
+        <datafeed name="Jurisdiction" displayName="Jurisdiction" dataScope="Project">
+          <datasheets>
+            <datasheet name="Jurisdiction" displayName="Jurisdiction" valueMember="JurisdictionID" displayMember="Name">
+              <columns>
+                <column name="JurisdictionID" dataType="Integer" isPrimary="True"/>
+                <column name="ProjectID" dataType="Integer"/>
+                <column name="Name" dataType="String"/>
+                <column name="Description" dataType="String"/>
+              </columns>
+            </datasheet>
+          </datasheets>
+        </datafeed>
+        <datafeed name="RunControl" displayName="Run Control" dataScope="Scenario">
+          <datasheets>
+            <datasheet name="RunControl" displayName="Run Control" isSingleRow="True">
+              <columns>
+                <column name="RunControlID" dataType="Integer" isPrimary="True"/>
+                <column name="ScenarioID" dataType="Integer"/>
+                <column name="MinimumTimestep" displayName="Start Date" dataType="Integer" defaultValue="0" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d"/>
+                <column name="MaximumTimestep" displayName="End Date" dataType="Integer" defaultValue="0" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d"/>
+                <column name="MinimumIteration" displayName="Minimum Iteration" dataType="Integer" defaultValue="1" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="1" format="d"/>
+                <column name="MaximumIteration" displayName="Number of Iterations" dataType="Integer" defaultValue="1" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="1" format="d"/>
+                <column name="ModelHistoricalDeaths" displayName="Model Historical Deaths (Y/N)" dataType="Boolean"/>
+                <column name="StartDate" displayName="Start Date" dataType="Date"/>
+                <column name="EndDate" displayName="End Date" dataType="Date"/>
+              </columns>
+            </datasheet>
+            <datasheet name="RuntimeJurisdiction" displayName="Runtime Jurisdiction">
+              <columns>
+                <column name="RuntimeJurisdictionID" dataType="Integer" isPrimary="True"/>
+                <column name="ScenarioID" dataType="Integer"/>
+                <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False"/>
+              </columns>
+              <validations>
+                <validation validationType="Unique" columns="Jurisdiction"/>
+              </validations>
+            </datasheet>
+          </datasheets>
+        </datafeed>
+        <datafeed name="DataSummaryInput" displayName="Summary Input" dataScope="Scenario">
+          <datasheets>
+            <datasheet name="DataSummaryInput" displayName="Summary Input">
+              <columns>
+                <column name="DataSummaryInputID" dataType="Integer" isPrimary="True"/>
+                <column name="ScenarioID" displayName="Scenario" dataType="Integer"/>
+                <column name="Iteration" dataType="Integer" isOptional="True"/>
+                <column name="Timestep" displayName="Date" dataType="Integer" isOptional="True"/>                
+                <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False"/>               
+                <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False"/>
+                <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True"/>
+                <column name="AgeMax" displayName="Age Max" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True"/>
+                <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isOptional="True"/>              
+                <column name="Value" dataType="Double"/>
+              </columns>
+            </datasheet>
+          </datasheets>
+        </datafeed>
+        <datafeed name="DataSummaryOutput" displayName="Summary Output" dataScope="Scenario">
+          <datasheets>
+            <datasheet name="DataSummaryOutput" displayName="Summary Output">
+              <columns>
+                <column name="ScenarioID" displayName="Scenario" dataType="Integer" isCompositeIndex="True"/>
+                <column name="Iteration" dataType="Integer" isCompositeIndex="True" isOptional="True"/>
+                <column name="Timestep" displayName="Date" dataType="Integer" isOptional="True" isCompositeIndex="True"/>                   
+                <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False" isCompositeIndex="True"/>               
+                <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False" isCompositeIndex="True"/>
+                <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True" isCompositeIndex="True"/>
+                <column name="AgeMax" displayName="Age Max" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True" isCompositeIndex="True"/>
+                <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isOptional="True" isCompositeIndex="True"/>             
+                <column name="Value" dataType="Double"/>
+              </columns>
+            </datasheet>
+          </datasheets>
+        </datafeed>        
+      </datafeeds>
+    </transformer>
+  </transformers>
+  <layouts>
+    <layout name="coreforms_LibraryDatafeeds">
+      <item name="core_SysFolder"/>
+      <item name="core_Backup"/>
+      <item name="core_Multiprocessing"/>
+      <item name="core_Options"/>
+      <item name="core_Rconfig"/>
+    </layout>
+    <layout name="coreforms_ProjectDatafeeds">
+      <item name="Variable"/>
+      <item name="Jurisdiction"/>
+      <item name="core_Stage"/>
+    </layout>
+    <layout name="coreforms_ScenarioDatafeeds">
+      <item name="RunControl"/>
+      <group name="Data">
+        <item name="DataSummaryInput"/>
+        <item name="DataSummaryOutput"/>          
+      </group>  
+      <item name="core_StageValue"/>      
+      <item name="core_Pipeline"/>
+    </layout>
+    <layout name="coreforms_ResultTransformers">
+      <item name="corestime_ChartTransformer"/>
+    </layout>
+    <layout 
+      name="corestimeforms_Charts" 
+      configurationSheet="RunControl" 
+      minDateTimeColumn="StartDate" 
+      maxDateTimeColumn="EndDate" 
+      xAxisValueType="DateTime" 
+      xAxisIntervalType="Days" 
+      xAxisLabelFormat="MMM-dd">
+    </layout>
+  </layouts>
+  <views>
+    <view
+      name="RunControlDataFeedView"
+      target="RunControl"
+      className="SyncroSim.Epi.RunControlDataFeedView"
+      classAssembly="SyncroSim.Epi"/>
+  </views>
+</package>
