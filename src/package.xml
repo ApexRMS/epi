@@ -8,8 +8,8 @@
       name="Primary"
       isPrimary="True"
       displayName="Epidemic"
-      className="SyncroSim.StochasticTime.StochasticTimeNOOPTransformer"
-      classAssembly="SyncroSim.StochasticTime"
+      className="SyncroSim.Epi.EpiPrimaryModel"
+      classAssembly="SyncroSim.Epi"
       configurationSheet="RunControl">
       <include>
         <transformer name="corestime_Runtime"/>
@@ -87,24 +87,24 @@
                 <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True"/>
                 <column name="AgeMax" displayName="Age Max" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True"/>
                 <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isOptional="True"/>              
-                <column name="Value" dataType="Double"/>
+                <column name="Value" dataType="Double" allowDbNull="False"/>
               </columns>
             </datasheet>
           </datasheets>
         </datafeed>
-        <datafeed name="DataSummaryOutput" displayName="Summary Output" dataScope="Scenario">
+        <datafeed name="DataSummaryOutput" displayName="Summary Output" dataScope="Scenario" isOutput="True">
           <datasheets>
             <datasheet name="DataSummaryOutput" displayName="Summary Output">
               <columns>
                 <column name="ScenarioID" displayName="Scenario" dataType="Integer" isCompositeIndex="True"/>
-                <column name="Iteration" dataType="Integer" isCompositeIndex="True" isOptional="True"/>
-                <column name="Timestep" displayName="Date" dataType="Integer" isOptional="True" isCompositeIndex="True"/>                   
+                <column name="Iteration" dataType="Integer" isCompositeIndex="True" allowDbNull="False"/>
+                <column name="Timestep" displayName="Date" dataType="Integer" allowDbNull="False" isCompositeIndex="True"/>                   
                 <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False" isCompositeIndex="True"/>               
                 <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False" isCompositeIndex="True"/>
                 <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True" isCompositeIndex="True"/>
                 <column name="AgeMax" displayName="Age Max" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True" isCompositeIndex="True"/>
                 <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isOptional="True" isCompositeIndex="True"/>             
-                <column name="Value" dataType="Double"/>
+                <column name="Value" dataType="Double" allowDbNull="False"/>
               </columns>
             </datasheet>
           </datasheets>
@@ -129,7 +129,7 @@
       <item name="RunControl"/>
       <group name="Data">
         <item name="DataSummaryInput"/>
-        <item name="DataSummaryOutput"/>          
+        <item name="DataSummaryOutput" forceVisible="True"/>          
       </group>  
       <item name="core_StageValue"/>      
       <item name="core_Pipeline"/>
@@ -145,6 +145,7 @@
       xAxisValueType="DateTime" 
       xAxisIntervalType="Days" 
       xAxisLabelFormat="MMM-dd">
+        <item name="Value" dataSheet="DataSummaryOutput" column="Value" filter="Variable|Jurisdiction"/>
     </layout>
   </layouts>
   <views>

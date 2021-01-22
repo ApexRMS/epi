@@ -1,5 +1,7 @@
-﻿// epidemic: SyncroSim Base Package for modeling epidemic infections and deaths.
+﻿// epi: SyncroSim Base Package for modeling epidemic infections and deaths.
 // Copyright © 2007-2020 Apex Resource Management Solutions Ltd. (ApexRMS). All rights reserved.
+
+using System.Globalization;
 
 namespace SyncroSim.Epi
 {
@@ -36,5 +38,15 @@ namespace SyncroSim.Epi
         public const string DATASHEET_VARIABLE_VALUE_DATA_POPULATION = "Data-Population";
         public const string DATASHEET_VARIABLE_VALUE_MODEL_CASES = "Model-Cases";
         public const string DATASHEET_VARIABLE_VALUE_MODEL_DEATHS = "Model-Deaths";
+
+        public static void ThrowEpidemicException(string message)
+        {
+            ThrowEpidemicException(message, new object[0]);
+        }
+
+        public static void ThrowEpidemicException(string message, params object[] args)
+        {
+            throw new EpidemicException(string.Format(CultureInfo.InvariantCulture, message, args));
+        }
     }
 }
