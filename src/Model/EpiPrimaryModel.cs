@@ -10,11 +10,6 @@ namespace SyncroSim.Epi
 {
     class EpiPrimaryModel : StochasticTimeTransformer
     {
-        public EpiPrimaryModel()
-        {
-            this.IsNOOPTransformer = true;
-        }
-
         public override void Configure()
         {
             this.ConfigureRunControl();

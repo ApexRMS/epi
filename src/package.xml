@@ -10,7 +10,8 @@
       displayName="Epidemic"
       className="SyncroSim.Epi.EpiPrimaryModel"
       classAssembly="SyncroSim.Epi"
-      configurationSheet="RunControl">
+      configurationSheet="RunControl"
+      isNoopTransformer="True">
       <include>
         <transformer name="corestime_Runtime"/>
       </include>
