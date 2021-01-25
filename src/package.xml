@@ -14,6 +14,7 @@
       isNoopTransformer="True">
       <include>
         <transformer name="corestime_Runtime"/>
+        <transformer name="InputOutputBridge"/>        
       </include>
       <datafeeds>
         <datafeed name="Variable" displayName="Variable" dataScope="Project">
@@ -82,7 +83,7 @@
                 <column name="DataSummaryInputID" dataType="Integer" isPrimary="True"/>
                 <column name="ScenarioID" displayName="Scenario" dataType="Integer"/>
                 <column name="Iteration" dataType="Integer" isOptional="True"/>
-                <column name="Timestep" displayName="Date" dataType="Integer" isOptional="True"/>                
+                <column name="Timestep" displayName="Date" dataType="Date" validationType="Date" isOptional="True"/>                
                 <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False"/>               
                 <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False"/>
                 <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True"/>
@@ -99,18 +100,26 @@
               <columns>
                 <column name="ScenarioID" displayName="Scenario" dataType="Integer" isCompositeIndex="True"/>
                 <column name="Iteration" dataType="Integer" isCompositeIndex="True" allowDbNull="False"/>
-                <column name="Timestep" displayName="Date" dataType="Integer" allowDbNull="False" isCompositeIndex="True"/>                   
+                <column name="Timestep" dataType="Integer" displayName="Date" isCompositeIndex="True"/>
+                <column name="Date" displayName="Date" dataType="Date" validationType="Date" allowDbNull="False"/>                   
                 <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False" isCompositeIndex="True"/>               
                 <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False" isCompositeIndex="True"/>
-                <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True" isCompositeIndex="True"/>
-                <column name="AgeMax" displayName="Age Max" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True" isCompositeIndex="True"/>
-                <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isOptional="True" isCompositeIndex="True"/>             
+                <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isCompositeIndex="True"/>
+                <column name="AgeMax" displayName="Age Max" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isCompositeIndex="True"/>
+                <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isCompositeIndex="True"/>             
                 <column name="Value" dataType="Double" allowDbNull="False"/>
               </columns>
             </datasheet>
           </datasheets>
         </datafeed>        
       </datafeeds>
+    </transformer>
+    <transformer 
+      name="InputOutputBridge" 
+      displayName="Input / Output Bridge"
+      className="SyncroSim.Epi.InputOutputBridge"
+      classAssembly="SyncroSim.Epi"
+      isRunnable="True">      
     </transformer>
   </transformers>
   <layouts>

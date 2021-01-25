@@ -89,6 +89,7 @@
   <ItemGroup>
     <Compile Include="DataSheets\VariableDataSheet.cs" />
     <Compile Include="Model\EpiPrimaryModel.cs" />
+    <Compile Include="Model\InputOutputBridge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Exceptions.cs" />
     <Compile Include="Shared\Shared.cs" />
