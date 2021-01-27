@@ -155,7 +155,9 @@
       xAxisValueType="DateTime" 
       xAxisIntervalType="Days" 
       xAxisLabelFormat="MMM-dd">
-        <item name="Value" dataSheet="DataSummaryOutput" column="Value" filter="Variable|Jurisdiction"/>
+      <group name="Values" dataSheet="DataSummaryOutput" filter="Jurisdiction">
+        <item name="Variable" dataSheet="DataSummaryOutput" column="Value" variableSourceColumn="Variable"/>        
+      </group>
     </layout>
   </layouts>
   <views>
