@@ -15,53 +15,58 @@ namespace SyncroSim.Epi
             int MaxTimestep = 0;
             DateTime StartDate = this.GetStartDateTime();
             DateTime EndDate = this.GetEndDateTime();
-            DataTable dt1 = this.Scenario.GetDataSheet("epi_DataSummaryInput").GetData();
-            DataTable dt2 = this.Scenario.GetDataSheet("epi_DataSummaryOutput").GetData();
+            DataSheet ds = this.Scenario.GetDataSheet("epi_DataSummaryInput");
+            DataTable dt1 = ds.GetData();
 
             this.GetMinMaxTimestep(out MinTimestep, out MaxTimestep);
 
-            using (DataStore store = this.Library.CreateDataStore())
+            using (SyncroSimTransactionScope scope = Session.CreateTransactionScope())
             {
-                foreach (DataRow drsrc in dt1.Rows)
+                using (DataStore store = this.Library.CreateDataStore())
                 {
-                    foreach (DataColumn c in dt1.Columns)
+                    foreach (DataRow drsrc in dt1.Rows)
                     {
-                        if (drsrc[c.ColumnName] == DBNull.Value)
+                        foreach (DataSheetColumn c in ds.Columns)
+                        {
+                            if (drsrc[c.Name] == DBNull.Value)
+                            {
+                                Shared.ThrowEpidemicException(
+                                    "The value for '{0}' is required.",
+                                    c.Name);
+                            }
+                        }
+
+                        int? ts = null;
+
+                        if (!this.TimestepFromDateTime(drsrc, StartDate, MinTimestep, MaxTimestep, out ts))
                         {
                             Shared.ThrowEpidemicException(
-                                "The value for '{0}' is required.",
-                                c.ColumnName);
+                                "Cannot convert date to timestep: {0}",
+                                drsrc["Timestep"]);
                         }
-                    }
 
-                    int? ts = null;
+                        DateTime dt = Convert.ToDateTime(drsrc["Timestep"]);
 
-                    if (!this.TimestepFromDateTime(drsrc, StartDate, MinTimestep, MaxTimestep, out ts))
-                    {
-                        Shared.ThrowEpidemicException(
-                            "Cannot convert date to timestep: {0}",
-                            drsrc["Timestep"]);
-                    }
-
-                    DateTime dt = Convert.ToDateTime(drsrc["Timestep"]); 
-
-                    string q = string.Format(
-                        @"INSERT INTO epi_DataSummaryOutput(
+                        string q = string.Format(
+                            @"INSERT INTO epi_DataSummaryOutput(
                           ScenarioID,Iteration,Timestep,Date,Variable,Jurisdiction,AgeMin,AgeMax,Sex,Value) 
                           VALUES({0},{1},{2},'{3}',{4},{5},{6},{7},{8},{9})",
-                            this.ResultScenario.Id,
-                            drsrc["Iteration"],
-                            ts,
-                            dt.ToString("yyyy-MM-dd"),
-                            drsrc["Variable"],
-                            drsrc["Jurisdiction"],
-                            drsrc["AgeMax"],
-                            drsrc["AgeMin"],
-                            drsrc["Sex"],
-                            drsrc["Value"]);
+                                this.ResultScenario.Id,
+                                drsrc["Iteration"],
+                                ts,
+                                dt.ToString("yyyy-MM-dd"),
+                                drsrc["Variable"],
+                                drsrc["Jurisdiction"],
+                                drsrc["AgeMax"],
+                                drsrc["AgeMin"],
+                                drsrc["Sex"],
+                                drsrc["Value"]);
 
-                    store.ExecuteNonQuery(q);
+                        store.ExecuteNonQuery(q);
+                    }
                 }
+
+                scope.Complete();
             }
         }
 
