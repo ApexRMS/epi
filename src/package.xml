@@ -99,7 +99,7 @@
               <columns>
                 <column name="ScenarioID" displayName="Scenario" dataType="Integer" isCompositeIndex="True"/>
                 <column name="Iteration" dataType="Integer" isCompositeIndex="True" allowDbNull="False"/>
-                <column name="Timestep" dataType="Integer" displayName="Timestep" isCompositeIndex="True"/>
+                <column name="Timestep" dataType="Integer" displayName="Timestep" isCompositeIndex="True" allowDbNull="False"/>
                 <column name="Date" displayName="Date" dataType="Date" validationType="Date" allowDbNull="False"/>                   
                 <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False" isCompositeIndex="True"/>               
                 <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False" isCompositeIndex="True"/>
