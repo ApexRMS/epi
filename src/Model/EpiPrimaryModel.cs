@@ -22,27 +22,23 @@ namespace SyncroSim.Epi
 
             if (dr == null)
             {
-                Shared.ThrowEpidemicException("There is no run control data.");
+                DataTable dt = ds.GetData();
+                dr = dt.NewRow();
+                dt.Rows.Add(dr);
             }
 
-            if (dr[Shared.DATASHEET_RUN_CONTROL_MIN_ITERATION_COLUMN_NAME] == DBNull.Value)
+            if (dr[Shared.DATASHEET_RUN_CONTROL_MIN_ITERATION_COLUMN_NAME] == DBNull.Value ||
+                dr[Shared.DATASHEET_RUN_CONTROL_MAX_ITERATION_COLUMN_NAME] == DBNull.Value)
             {
-                Shared.ThrowEpidemicException("The run control minimum iterations is missing.");
+                dr[Shared.DATASHEET_RUN_CONTROL_MIN_ITERATION_COLUMN_NAME] = 1;
+                dr[Shared.DATASHEET_RUN_CONTROL_MAX_ITERATION_COLUMN_NAME] = 1;
             }
 
-            if (dr[Shared.DATASHEET_RUN_CONTROL_MAX_ITERATION_COLUMN_NAME] == DBNull.Value)
+            if (dr[Shared.DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME] == DBNull.Value ||
+                dr[Shared.DATASHEET_RUN_CONTROL_END_DATE_COLUMN_NAME] == DBNull.Value)
             {
-                Shared.ThrowEpidemicException("The run control total iterations is missing.");
-            }
-
-            if (dr[Shared.DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME] == DBNull.Value)
-            {
-                Shared.ThrowEpidemicException("The run control start date is missing.");
-            }
-
-            if (dr[Shared.DATASHEET_RUN_CONTROL_END_DATE_COLUMN_NAME] == DBNull.Value)
-            {
-                Shared.ThrowEpidemicException("The run control end date is missing.");
+                dr[Shared.DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME] = DateTime.Now;
+                dr[Shared.DATASHEET_RUN_CONTROL_END_DATE_COLUMN_NAME] = DateTime.Now.AddDays(30);
             }
 
             DateTime Start = (DateTime)dr[Shared.DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME];
