@@ -26,10 +26,14 @@
               </columns>
               <defaultRecords>
                 <record columns="Name|IsInternal" values="Data-Cases|-1"/>
+                <record columns="Name|IsInternal" values="Data-Cumulative-Cases|-1"/>                
                 <record columns="Name|IsInternal" values="Data-Deaths|-1"/>
+                <record columns="Name|IsInternal" values="Data-Cumulative-Deaths|-1"/>                
                 <record columns="Name|IsInternal" values="Data-Population|-1"/>
                 <record columns="Name|IsInternal" values="Model-Cases|-1"/>
+                <record columns="Name|IsInternal" values="Model-Cumulative-Cases|-1"/>                
                 <record columns="Name|IsInternal" values="Model-Deaths|-1"/>
+                <record columns="Name|IsInternal" values="Model-Cumulative-Deaths|-1"/>                
               </defaultRecords>
             </datasheet>
           </datasheets>
