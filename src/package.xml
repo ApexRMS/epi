@@ -8,8 +8,6 @@
       name="Primary"
       isPrimary="True"
       displayName="Epidemic"
-      className="SyncroSim.Epi.EpiPrimaryModel"
-      classAssembly="SyncroSim.Epi"
       configurationSheet="RunControl">
       <include>
         <transformer name="corestime_Runtime"/>
