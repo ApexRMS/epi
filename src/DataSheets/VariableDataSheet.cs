@@ -141,42 +141,12 @@ namespace SyncroSim.Epi
                 return true;
             }
 
-            if (string.Compare(name, Shared.DATASHEET_VARIABLE_VALUE_DATA_CUMULATIVE_CASES, StringComparison.OrdinalIgnoreCase) == 0)
-            {
-                return true;
-            }
-
             if (string.Compare(name, Shared.DATASHEET_VARIABLE_VALUE_DATA_DEATHS, StringComparison.OrdinalIgnoreCase) == 0)
             {
                 return true;
             }
 
-            if (string.Compare(name, Shared.DATASHEET_VARIABLE_VALUE_DATA_CUMULATIVE_DEATHS, StringComparison.OrdinalIgnoreCase) == 0)
-            {
-                return true;
-            }
-
             if (string.Compare(name, Shared.DATASHEET_VARIABLE_VALUE_DATA_POPULATION, StringComparison.OrdinalIgnoreCase) == 0)
-            {
-                return true;
-            }
-
-            if (string.Compare(name, Shared.DATASHEET_VARIABLE_VALUE_MODEL_CASES, StringComparison.OrdinalIgnoreCase) == 0)
-            {
-                return true;
-            }
-
-            if (string.Compare(name, Shared.DATASHEET_VARIABLE_VALUE_MODEL_CUMULATIVE_CASES, StringComparison.OrdinalIgnoreCase) == 0)
-            {
-                return true;
-            }
-
-            if (string.Compare(name, Shared.DATASHEET_VARIABLE_VALUE_MODEL_DEATHS, StringComparison.OrdinalIgnoreCase) == 0)
-            {
-                return true;
-            }
-
-            if (string.Compare(name, Shared.DATASHEET_VARIABLE_VALUE_MODEL_CUMULATIVE_DEATHS, StringComparison.OrdinalIgnoreCase) == 0)
             {
                 return true;
             }

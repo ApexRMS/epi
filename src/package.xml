@@ -8,15 +8,17 @@
       name="Primary"
       isPrimary="True"
       displayName="Epidemic"
+      className="SyncroSim.StochasticTime.StochasticTimeTransformer"
+      classAssembly="SyncroSim.StochasticTime"
       configurationSheet="RunControl">
       <include>
         <transformer name="corestime_Runtime"/>
         <transformer name="InputOutputBridge"/>        
       </include>
       <datafeeds>
-        <datafeed name="Variable" displayName="Variable" dataScope="Project">
+        <datafeed name="Variable" displayName="Variables" dataScope="Project">
           <datasheets>
-            <datasheet name="Variable" displayName="Variable" valueMember="VariableID" displayMember="Name" filter="IsInternal IS NULL OR IsInternal=0" className="SyncroSim.Epi.VariableDataSheet" classAssembly="SyncroSim.Epi">
+            <datasheet name="Variable" displayName="Variables" valueMember="VariableID" displayMember="Name" filter="IsInternal IS NULL OR IsInternal=0" className="SyncroSim.Epi.VariableDataSheet" classAssembly="SyncroSim.Epi">
               <columns>
                 <column name="VariableID" dataType="Integer" isPrimary="True"/>
                 <column name="ProjectID" dataType="Integer"/>
@@ -25,22 +27,16 @@
                 <column name="IsInternal" dataType="Boolean" isVisible="False"/>
               </columns>
               <defaultRecords>
-                <record columns="Name|IsInternal" values="Data-Cases|-1"/>
-                <record columns="Name|IsInternal" values="Data-Cumulative-Cases|-1"/>                
-                <record columns="Name|IsInternal" values="Data-Deaths|-1"/>
-                <record columns="Name|IsInternal" values="Data-Cumulative-Deaths|-1"/>                
-                <record columns="Name|IsInternal" values="Data-Population|-1"/>
-                <record columns="Name|IsInternal" values="Model-Cases|-1"/>
-                <record columns="Name|IsInternal" values="Model-Cumulative-Cases|-1"/>                
-                <record columns="Name|IsInternal" values="Model-Deaths|-1"/>
-                <record columns="Name|IsInternal" values="Model-Cumulative-Deaths|-1"/>                
+                <record columns="Name|IsInternal" values="Cases|-1"/>
+                <record columns="Name|IsInternal" values="Deaths|-1"/>
+                <record columns="Name|IsInternal" values="Population|-1"/>
               </defaultRecords>
             </datasheet>
           </datasheets>
         </datafeed>
-        <datafeed name="Jurisdiction" displayName="Jurisdiction" dataScope="Project">
+        <datafeed name="Jurisdiction" displayName="Jurisdictions" dataScope="Project">
           <datasheets>
-            <datasheet name="Jurisdiction" displayName="Jurisdiction" valueMember="JurisdictionID" displayMember="Name">
+            <datasheet name="Jurisdiction" displayName="Jurisdictions" valueMember="JurisdictionID" displayMember="Name">
               <columns>
                 <column name="JurisdictionID" dataType="Integer" isPrimary="True"/>
                 <column name="ProjectID" dataType="Integer"/>
@@ -138,12 +134,13 @@
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
       <item name="RunControl"/>
-      <group name="Data">
-        <item name="DataSummaryInput"/>
-        <item name="DataSummaryOutput" forceVisible="True"/>          
-      </group>  
-      <item name="core_StageValue"/>      
-      <item name="core_Pipeline"/>
+      <group name="Data"> 
+        <item name="DataSummaryOutput" forceVisible="True"/>                  
+      </group>
+      <group name="Pipeline">
+        <item name="core_Pipeline"/>  
+        <item name="core_StageValue"/>          
+      </group>
     </layout>
     <layout name="coreforms_ResultTransformers">
       <item name="corestime_ChartTransformer"/>

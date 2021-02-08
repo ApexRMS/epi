@@ -33,15 +33,9 @@ namespace SyncroSim.Epi
         public const string DATASHEET_VARIABLE_NAME_COLUMN_NAME = "Name";
         public const string DATASHEET_VARIABLE_IS_INTERNAL_COLUMN_NAME = "IsInternal";
 
-        public const string DATASHEET_VARIABLE_VALUE_DATA_CASES = "Data-Cases";
-        public const string DATASHEET_VARIABLE_VALUE_DATA_CUMULATIVE_CASES = "Data-Cumulative-Cases";
-        public const string DATASHEET_VARIABLE_VALUE_DATA_DEATHS = "Data-Deaths";
-        public const string DATASHEET_VARIABLE_VALUE_DATA_CUMULATIVE_DEATHS = "Data-Cumulative-Deaths";
-        public const string DATASHEET_VARIABLE_VALUE_DATA_POPULATION = "Data-Population";
-        public const string DATASHEET_VARIABLE_VALUE_MODEL_CASES = "Model-Cases";
-        public const string DATASHEET_VARIABLE_VALUE_MODEL_CUMULATIVE_CASES = "Model-Cumulative-Cases";
-        public const string DATASHEET_VARIABLE_VALUE_MODEL_DEATHS = "Model-Deaths";
-        public const string DATASHEET_VARIABLE_VALUE_MODEL_CUMULATIVE_DEATHS = "Model-Cumulative-Deaths";
+        public const string DATASHEET_VARIABLE_VALUE_DATA_CASES = "Cases";
+        public const string DATASHEET_VARIABLE_VALUE_DATA_DEATHS = "Deaths";
+        public const string DATASHEET_VARIABLE_VALUE_DATA_POPULATION = "Population";
 
         public static void ThrowEpidemicException(string message)
         {
