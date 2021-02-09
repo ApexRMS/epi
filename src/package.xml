@@ -57,8 +57,8 @@
                 <column name="MinimumIteration" displayName="Minimum Iteration" dataType="Integer" defaultValue="1" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="1" format="d"/>
                 <column name="MaximumIteration" displayName="Number of Iterations" dataType="Integer" defaultValue="1" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="1" format="d"/>
                 <column name="ModelHistoricalDeaths" displayName="Model Historical Deaths (Y/N)" dataType="Boolean"/>
-                <column name="StartDate" displayName="Start Date" dataType="Date"/>
-                <column name="EndDate" displayName="End Date" dataType="Date"/>
+                <column name="StartDate" displayName="Start Date" dataType="Date" validationType="Date"/>
+                <column name="EndDate" displayName="End Date" dataType="Date" validationType="Date"/>
               </columns>
             </datasheet>
             <datasheet name="RuntimeJurisdiction" displayName="Runtime Jurisdiction">
