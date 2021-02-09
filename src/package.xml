@@ -134,8 +134,16 @@
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
       <item name="RunControl"/>
-      <group name="Data"> 
-        <item name="DataSummaryOutput" forceVisible="True"/>                  
+      <group name="Input">
+        <item name="dataBcCdc_Input"/>
+        <item name="dataUTor_Input"/> 
+        <item name="epiModelBaseline_BaselineModel"/>
+        <item name="epiModelRegression_RegressionModel"/>         
+      </group>
+      <group name="Output"> 
+        <item name="DataSummaryOutput" forceVisible="True"/>  
+        <item name="dataBcCdc_Output" forceVisible="True"/>
+        <item name="dataUTor_Output" forceVisible="True"/>         
       </group>
       <group name="Pipeline">
         <item name="core_Pipeline"/>  
