@@ -8,8 +8,8 @@
       name="Primary"
       isPrimary="True"
       displayName="Epidemic"
-      className="SyncroSim.StochasticTime.StochasticTimeTransformer"
-      classAssembly="SyncroSim.StochasticTime"
+      className="SyncroSim.Epi.PrimaryTransformer"
+      classAssembly="SyncroSim.Epi"
       configurationSheet="RunControl">
       <include>
         <transformer name="corestime_Runtime"/>
@@ -130,7 +130,8 @@
     <layout name="coreforms_ProjectDatafeeds">
       <item name="Variable"/>
       <item name="Jurisdiction"/>
-      <item name="core_Stage"/>
+      <item name="core_StageName"/>
+      <item name="core_StageValue"/>
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
       <item name="RunControl"/>
@@ -147,7 +148,6 @@
       </group>
       <group name="Pipeline">
         <item name="core_Pipeline"/>  
-        <item name="core_StageValue"/>          
       </group>
     </layout>
     <layout name="coreforms_ResultTransformers">
