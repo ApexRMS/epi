@@ -135,16 +135,10 @@
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
       <item name="RunControl"/>
-      <group name="Inputs">
-        <item name="dataBcCdc_Input"/>
-        <item name="dataUTor_Input"/> 
-        <item name="epiModelBaseline_BaselineModel"/>
-        <item name="epiModelRegression_RegressionModel"/>         
+      <group name="Inputs">       
       </group>
       <group name="Outputs"> 
-        <item name="DataSummaryOutput" runRequired="True"/>  
-        <item name="dataBcCdc_Output" runRequired="True"/>
-        <item name="dataUTor_Output" runRequired="True"/>         
+        <item name="DataSummaryOutput" runRequired="True"/>         
       </group>
       <item name="core_Pipeline"/>  
     </layout>
