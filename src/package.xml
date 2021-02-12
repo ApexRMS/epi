@@ -142,13 +142,11 @@
         <item name="epiModelRegression_RegressionModel"/>         
       </group>
       <group name="Outputs"> 
-        <item name="DataSummaryOutput" forceVisible="True"/>  
-        <item name="dataBcCdc_Output" forceVisible="True"/>
-        <item name="dataUTor_Output" forceVisible="True"/>         
+        <item name="DataSummaryOutput" runRequired="True"/>  
+        <item name="dataBcCdc_Output" runRequired="True"/>
+        <item name="dataUTor_Output" runRequired="True"/>         
       </group>
-      <group name="Pipeline">
-        <item name="core_Pipeline"/>  
-      </group>
+      <item name="core_Pipeline"/>  
     </layout>
     <layout name="coreforms_ResultTransformers">
       <item name="corestime_ChartTransformer"/>
