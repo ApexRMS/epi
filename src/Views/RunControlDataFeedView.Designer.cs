@@ -120,7 +120,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 17);
             this.label5.TabIndex = 8;
-            this.label5.Text = "(yyyy-MM-dd)";
+            this.label5.Text = "(yyyy-mm-dd)";
             // 
             // label6
             // 
@@ -129,7 +129,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 17);
             this.label6.TabIndex = 9;
-            this.label6.Text = "(yyyy-MM-dd)";
+            this.label6.Text = "(yyyy-mm-dd)";
             // 
             // RunControlDataFeedView
             // 

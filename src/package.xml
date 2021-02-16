@@ -130,8 +130,11 @@
     <layout name="coreforms_ProjectDatafeeds">
       <item name="Variable"/>
       <item name="Jurisdiction"/>
-      <item name="core_StageName"/>
-      <item name="core_StageValue"/>
+      <group name="Pipeline">
+        <item name="core_Transformer"/>
+        <item name="core_StageName"/>
+        <item name="core_StageValue"/>        
+      </group>
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
       <item name="RunControl"/>
