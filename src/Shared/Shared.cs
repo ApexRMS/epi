@@ -25,6 +25,8 @@ namespace SyncroSim.Epi
         public const string DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME = "StartDate";
         public const string DATASHEET_RUN_CONTROL_END_DATE_COLUMN_NAME = "EndDate";
 
+        public const string CUE_BANNER_DATE = "yyyy-mm-dd";
+
         //Runtime Jurisdiction
         public const string DATASHEET_RUNTIME_JURISDICTION_NAME = "epi_RuntimeJurisdiction";
 

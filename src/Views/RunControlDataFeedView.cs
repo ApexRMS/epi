@@ -1,7 +1,6 @@
 ﻿// epi: SyncroSim Base Package for modeling epidemic infections and deaths.
 // Copyright © 2007-2020 Apex Resource Management Solutions Ltd. (ApexRMS). All rights reserved.
 
-using System.Windows.Forms;
 using SyncroSim.Core;
 using SyncroSim.Core.Forms;
 
@@ -20,6 +19,9 @@ namespace SyncroSim.Epi
 
             DataFeedView v = this.Session.CreateMultiRowDataFeedView(this.Scenario, this.ControllingScenario);
             this.PanelJurisdictions.Controls.Add(v);
+
+            NativeMethods.SendMessage(this.TextBoxStartDate.Handle, NativeMethods.EM_SETCUEBANNER, 0, Shared.CUE_BANNER_DATE);
+            NativeMethods.SendMessage(this.TextBoxEndDate.Handle, NativeMethods.EM_SETCUEBANNER, 0, Shared.CUE_BANNER_DATE);
         }
 
         public override void LoadDataFeed(DataFeed dataFeed)

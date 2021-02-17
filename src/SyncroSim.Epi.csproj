@@ -92,6 +92,7 @@
     <Compile Include="Model\PrimaryTransformer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\Exceptions.cs" />
+    <Compile Include="Shared\NativeMethods.cs" />
     <Compile Include="Shared\Shared.cs" />
     <Compile Include="Views\RunControlDataFeedView.cs">
       <SubType>UserControl</SubType>
@@ -106,6 +107,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\DatePicker.png" />
     <Content Include="package.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
