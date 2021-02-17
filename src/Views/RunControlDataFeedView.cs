@@ -3,6 +3,7 @@
 
 using SyncroSim.Core;
 using SyncroSim.Core.Forms;
+using System.Windows.Forms;
 
 namespace SyncroSim.Epi
 {
@@ -22,6 +23,10 @@ namespace SyncroSim.Epi
 
             NativeMethods.SendMessage(this.TextBoxStartDate.Handle, NativeMethods.EM_SETCUEBANNER, 0, Shared.CUE_BANNER_DATE);
             NativeMethods.SendMessage(this.TextBoxEndDate.Handle, NativeMethods.EM_SETCUEBANNER, 0, Shared.CUE_BANNER_DATE);
+
+            int h = this.TextBoxStartDate.Height;
+            this.ButtonStartDate.Size = new System.Drawing.Size(h, h);
+            this.ButtonEndDate.Size = new System.Drawing.Size(h, h);
         }
 
         public override void LoadDataFeed(DataFeed dataFeed)
@@ -53,6 +58,30 @@ namespace SyncroSim.Epi
 
             MultiRowDataFeedView v = (MultiRowDataFeedView)this.PanelJurisdictions.Controls[0];
             v.GridControl.IsReadOnly = (!enable);
+        }
+
+        private void ButtonStartDate_Click(object sender, System.EventArgs e)
+        {
+            ChooseDateForm f = new ChooseDateForm();
+
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                DataSheet ds = this.DataFeed.GetDataSheet(Shared.DATASHEET_RUN_CONTROL_NAME);
+                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME, f.DateTime);
+                this.RefreshBoundControls();
+            }
+        }
+
+        private void ButtonEndDate_Click(object sender, System.EventArgs e)
+        {
+            ChooseDateForm f = new ChooseDateForm();
+
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                DataSheet ds = this.DataFeed.GetDataSheet(Shared.DATASHEET_RUN_CONTROL_NAME);
+                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME, f.DateTime);
+                this.RefreshBoundControls();
+            }
         }
     }
 }

@@ -87,10 +87,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ChooseDateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChooseDateForm.Designer.cs">
+      <DependentUpon>ChooseDateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSheets\VariableDataSheet.cs" />
     <Compile Include="Model\InputOutputBridge.cs" />
     <Compile Include="Model\PrimaryTransformer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChooseDateButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Shared\Exceptions.cs" />
     <Compile Include="Shared\NativeMethods.cs" />
     <Compile Include="Shared\Shared.cs" />
@@ -102,6 +116,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\ChooseDateForm.resx">
+      <DependentUpon>ChooseDateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\RunControlDataFeedView.resx">
       <DependentUpon>RunControlDataFeedView.cs</DependentUpon>
     </EmbeddedResource>

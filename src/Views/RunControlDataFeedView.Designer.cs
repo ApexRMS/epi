@@ -36,6 +36,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TextBoxEndDate = new System.Windows.Forms.TextBox();
             this.TextBoxStartDate = new System.Windows.Forms.TextBox();
+            this.ButtonEndDate = new SyncroSim.Epi.ChooseDateButton();
+            this.ButtonStartDate = new SyncroSim.Epi.ChooseDateButton();
             this.SuspendLayout();
             // 
             // label1
@@ -111,10 +113,28 @@
             this.TextBoxStartDate.Size = new System.Drawing.Size(116, 22);
             this.TextBoxStartDate.TabIndex = 1;
             // 
+            // ButtonEndDate
+            // 
+            this.ButtonEndDate.Location = new System.Drawing.Point(233, 52);
+            this.ButtonEndDate.Name = "ButtonEndDate";
+            this.ButtonEndDate.Size = new System.Drawing.Size(24, 24);
+            this.ButtonEndDate.TabIndex = 9;
+            this.ButtonEndDate.Click += new System.EventHandler(this.ButtonEndDate_Click);
+            // 
+            // ButtonStartDate
+            // 
+            this.ButtonStartDate.Location = new System.Drawing.Point(233, 20);
+            this.ButtonStartDate.Name = "ButtonStartDate";
+            this.ButtonStartDate.Size = new System.Drawing.Size(24, 24);
+            this.ButtonStartDate.TabIndex = 8;
+            this.ButtonStartDate.Click += new System.EventHandler(this.ButtonStartDate_Click);
+            // 
             // RunControlDataFeedView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ButtonEndDate);
+            this.Controls.Add(this.ButtonStartDate);
             this.Controls.Add(this.TextBoxStartDate);
             this.Controls.Add(this.TextBoxEndDate);
             this.Controls.Add(this.label4);
@@ -139,5 +159,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TextBoxEndDate;
         private System.Windows.Forms.TextBox TextBoxStartDate;
+        private ChooseDateButton ButtonStartDate;
+        private ChooseDateButton ButtonEndDate;
     }
 }
