@@ -79,7 +79,7 @@ namespace SyncroSim.Epi
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 DataSheet ds = this.DataFeed.GetDataSheet(Shared.DATASHEET_RUN_CONTROL_NAME);
-                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME, f.DateTime);
+                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_END_DATE_COLUMN_NAME, f.DateTime);
                 this.RefreshBoundControls();
             }
         }

@@ -15,11 +15,11 @@ namespace SyncroSim.Epi
 
             if (this.Enabled)
             {
-                pevent.Graphics.DrawImage(Properties.Resources.DatePicker, new Point(0, 0));
+                pevent.Graphics.DrawImage(Properties.Resources.DatePicker, new Point(0, 2));
             }
             else
             {
-                ControlPaint.DrawImageDisabled(pevent.Graphics, Properties.Resources.DatePicker, 0, 0, Color.White);
+                ControlPaint.DrawImageDisabled(pevent.Graphics, Properties.Resources.DatePicker, 0, 2, Color.White);
             }
         }
 
