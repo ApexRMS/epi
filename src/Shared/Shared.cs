@@ -22,10 +22,7 @@ namespace SyncroSim.Epi
         public const string DATASHEET_RUN_CONTROL_MIN_ITERATION_COLUMN_NAME = "MinimumIteration";
         public const string DATASHEET_RUN_CONTROL_MAX_ITERATION_COLUMN_NAME = "MaximumIteration";
         public const string DATASHEET_RUN_CONTROL_MODEL_HISTORICAL_DEATHS_COLUMN_NAME = "ModelHistoricalDeaths";
-        public const string DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME = "StartDate";
-        public const string DATASHEET_RUN_CONTROL_END_DATE_COLUMN_NAME = "EndDate";
-
-        public const string CUE_BANNER_DATE = "yyyy-mm-dd";
+        public const string CUE_BANNER_DATE = "YYYY-MM-DD";
 
         //Runtime Jurisdiction
         public const string DATASHEET_RUNTIME_JURISDICTION_NAME = "epi_RuntimeJurisdiction";

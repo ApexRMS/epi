@@ -36,12 +36,12 @@ namespace SyncroSim.Epi
             this.SetTextBoxBinding(
                 this.TextBoxStartDate,
                 Shared.DATASHEET_RUN_CONTROL_NAME,
-                Shared.DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME);
+                Shared.DATASHEET_RUN_CONTROL_MIN_TIMESTEP_COLUMN_NAME);
 
             this.SetTextBoxBinding(
                 this.TextBoxEndDate,
                 Shared.DATASHEET_RUN_CONTROL_NAME,
-                Shared.DATASHEET_RUN_CONTROL_END_DATE_COLUMN_NAME);
+                Shared.DATASHEET_RUN_CONTROL_MAX_TIMESTEP_COLUMN_NAME);
 
             this.SetTextBoxBinding(
                 this.TextBoxMaxIterations, 
@@ -67,7 +67,7 @@ namespace SyncroSim.Epi
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 DataSheet ds = this.DataFeed.GetDataSheet(Shared.DATASHEET_RUN_CONTROL_NAME);
-                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_START_DATE_COLUMN_NAME, f.DateTime);
+                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MIN_TIMESTEP_COLUMN_NAME, f.DateTime);
                 this.RefreshBoundControls();
             }
         }
@@ -79,7 +79,7 @@ namespace SyncroSim.Epi
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 DataSheet ds = this.DataFeed.GetDataSheet(Shared.DATASHEET_RUN_CONTROL_NAME);
-                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_END_DATE_COLUMN_NAME, f.DateTime);
+                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MAX_TIMESTEP_COLUMN_NAME, f.DateTime);
                 this.RefreshBoundControls();
             }
         }

@@ -13,7 +13,6 @@
       configurationSheet="RunControl">
       <include>
         <transformer name="corestime_Runtime"/>
-        <transformer name="InputOutputBridge"/>        
       </include>
       <datafeeds>
         <datafeed name="Variable" displayName="Variables" dataScope="Project">
@@ -52,13 +51,11 @@
               <columns>
                 <column name="RunControlID" dataType="Integer" isPrimary="True"/>
                 <column name="ScenarioID" dataType="Integer"/>
-                <column name="MinimumTimestep" displayName="Start Date" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d"/>
-                <column name="MaximumTimestep" displayName="End Date" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" format="d"/>
+                <column name="MinimumTimestep" displayName="Start Date" dataType="Date" validationType="Date"/>
+                <column name="MaximumTimestep" displayName="End Date" dataType="Date" validationType="Date"/>
                 <column name="MinimumIteration" displayName="Minimum Iteration" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="1" format="d"/>
                 <column name="MaximumIteration" displayName="Number of Iterations" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="1" format="d"/>
                 <column name="ModelHistoricalDeaths" displayName="Model Historical Deaths (Y/N)" dataType="Boolean"/>
-                <column name="StartDate" displayName="Start Date" dataType="Date" validationType="Date"/>
-                <column name="EndDate" displayName="End Date" dataType="Date" validationType="Date"/>
               </columns>
             </datasheet>
             <datasheet name="RuntimeJurisdiction" displayName="Runtime Jurisdiction">
@@ -73,11 +70,11 @@
             </datasheet>
           </datasheets>
         </datafeed>
-        <datafeed name="DataSummaryInput" displayName="Summary Input" dataScope="Scenario">
+        <datafeed name="DataSummary" displayName="Summary Data" dataScope="Scenario">
           <datasheets>
-            <datasheet name="DataSummaryInput" displayName="Summary Input">
+            <datasheet name="DataSummary" displayName="Summary Data">
               <columns>
-                <column name="DataSummaryInputID" dataType="Integer" isPrimary="True"/>
+                <column name="DataSummaryID" dataType="Integer" isPrimary="True"/>
                 <column name="ScenarioID" displayName="Scenario" dataType="Integer"/>
                 <column name="Iteration" dataType="Integer" isOptional="True"/>
                 <column name="Timestep" displayName="Date" dataType="Date" validationType="Date" isOptional="True"/>                
@@ -90,33 +87,8 @@
               </columns>
             </datasheet>
           </datasheets>
-        </datafeed>
-        <datafeed name="DataSummaryOutput" displayName="Summary Output" dataScope="Scenario" isOutput="True">
-          <datasheets>
-            <datasheet name="DataSummaryOutput" displayName="Summary Output">
-              <columns>
-                <column name="ScenarioID" displayName="Scenario" dataType="Integer" isCompositeIndex="True"/>
-                <column name="Iteration" dataType="Integer" isCompositeIndex="True" allowDbNull="False"/>
-                <column name="Timestep" dataType="Integer" displayName="Timestep" isCompositeIndex="True" allowDbNull="False"/>
-                <column name="Date" displayName="Date" dataType="Date" validationType="Date" allowDbNull="False"/>                   
-                <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False" isCompositeIndex="True"/>               
-                <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False" isCompositeIndex="True"/>
-                <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isCompositeIndex="True"/>
-                <column name="AgeMax" displayName="Age Max" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isCompositeIndex="True"/>
-                <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isCompositeIndex="True"/>             
-                <column name="Value" dataType="Double" allowDbNull="False"/>
-              </columns>
-            </datasheet>
-          </datasheets>
-        </datafeed>        
+        </datafeed>       
       </datafeeds>
-    </transformer>
-    <transformer 
-      name="InputOutputBridge" 
-      displayName="Input / Output Bridge"
-      className="SyncroSim.Epi.InputOutputBridge"
-      classAssembly="SyncroSim.Epi"
-      isRunnable="True">      
     </transformer>
   </transformers>
   <layouts>
@@ -141,23 +113,16 @@
       <group name="Inputs">       
       </group>
       <group name="Outputs"> 
-        <item name="DataSummaryOutput" runRequired="True"/>         
+        <item name="DataSummary" runRequired="True"/>         
       </group>
       <item name="core_Pipeline"/>  
     </layout>
     <layout name="coreforms_ResultTransformers">
       <item name="corestime_ChartTransformer"/>
     </layout>
-    <layout 
-      name="corestimeforms_Charts" 
-      configurationSheet="RunControl" 
-      minDateTimeColumn="StartDate" 
-      maxDateTimeColumn="EndDate" 
-      xAxisValueType="DateTime" 
-      xAxisIntervalType="Days" 
-      xAxisLabelFormat="MMM-dd">
-      <group name="Variables" dataSheet="DataSummaryOutput" filter="Jurisdiction">
-        <item name="Variable" dataSheet="DataSummaryOutput" column="Value" variableSourceColumn="Variable"/>        
+    <layout name="corestimeforms_Charts" configurationSheet="RunControl" xAxisLabelFormat="MMM-dd">
+      <group name="Variables" dataSheet="DataSummary" filter="Jurisdiction">
+        <item name="Variable" dataSheet="DataSummary" column="Value" variableSourceColumn="Variable"/>        
       </group>
     </layout>
   </layouts>
