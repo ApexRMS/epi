@@ -122,15 +122,11 @@
     </layout>
     <layout name="corestimeforms_Charts" configurationSheet="RunControl" xAxisLabelFormat="MMM-dd">
       <group name="Variables" dataSheet="DataSummary" filter="Jurisdiction">
-        <item name="Variable" dataSheet="DataSummary" column="Value" variableSourceColumn="Variable"/>        
+        <item name="Variable" dataSheet="DataSummary" column="Value" variableSourceColumn="Variable" prefixFolderName="False"/>        
       </group>
     </layout>
   </layouts>
   <views>
-    <view
-      name="RunControlDataFeedView"
-      target="RunControl"
-      className="SyncroSim.Epi.RunControlDataFeedView"
-      classAssembly="SyncroSim.Epi"/>
+    <view name="RunControlDataFeedView" target="RunControl" className="SyncroSim.Epi.RunControlDataFeedView" classAssembly="SyncroSim.Epi"/>
   </views>
 </package>
