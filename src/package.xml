@@ -107,10 +107,8 @@
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
       <item name="RunControl"/>
-      <group name="Inputs">       
-      </group>
-      <group name="Outputs"> 
-        <item name="DataSummary" runRequired="True"/>         
+      <item name="DataSummary"/>             
+      <group name="Other">       
       </group>
       <item name="core_Pipeline"/>  
     </layout>
