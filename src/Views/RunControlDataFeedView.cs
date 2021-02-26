@@ -60,6 +60,17 @@ namespace SyncroSim.Epi
             v.GridControl.IsReadOnly = (!enable);
         }
 
+        protected override void OnBoundTextBoxValidated(TextBox textBox, string columnName, string newValue)
+        {
+            base.OnBoundTextBoxValidated(textBox, columnName, newValue);
+
+            if (textBox == this.TextBoxMaxIterations)
+            {
+                DataSheet ds = this.DataFeed.GetDataSheet(Shared.DATASHEET_RUN_CONTROL_NAME);
+                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MIN_ITERATION_COLUMN_NAME, 1);                
+            }
+        }
+
         private void ButtonStartDate_Click(object sender, System.EventArgs e)
         {
             ChooseDateForm f = new ChooseDateForm();
