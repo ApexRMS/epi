@@ -1,9 +1,10 @@
 ﻿// epi: SyncroSim Base Package for modeling epidemic infections and deaths.
 // Copyright © 2007-2020 Apex Resource Management Solutions Ltd. (ApexRMS). All rights reserved.
 
+using System;
+using System.Windows.Forms;
 using SyncroSim.Core;
 using SyncroSim.Core.Forms;
-using System.Windows.Forms;
 
 namespace SyncroSim.Epi
 {
@@ -67,30 +68,38 @@ namespace SyncroSim.Epi
             if (textBox == this.TextBoxMaxIterations)
             {
                 DataSheet ds = this.DataFeed.GetDataSheet(Shared.DATASHEET_RUN_CONTROL_NAME);
-                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MIN_ITERATION_COLUMN_NAME, 1);                
+
+                if (string.IsNullOrWhiteSpace(this.TextBoxMaxIterations.Text))
+                {
+                    ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MIN_ITERATION_COLUMN_NAME, DBNull.Value);
+                }
+                else
+                {
+                    ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MIN_ITERATION_COLUMN_NAME, 1);
+                }                
             }
         }
 
-        private void ButtonStartDate_Click(object sender, System.EventArgs e)
+        private void ButtonStartDate_Click(object sender, EventArgs e)
         {
             ChooseDateForm f = new ChooseDateForm();
 
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 DataSheet ds = this.DataFeed.GetDataSheet(Shared.DATASHEET_RUN_CONTROL_NAME);
-                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MIN_TIMESTEP_COLUMN_NAME, f.DateTime);
+                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MIN_TIMESTEP_COLUMN_NAME, Shared.NormalizeDateTime(f.DateTime));
                 this.RefreshBoundControls();
             }
         }
 
-        private void ButtonEndDate_Click(object sender, System.EventArgs e)
+        private void ButtonEndDate_Click(object sender, EventArgs e)
         {
             ChooseDateForm f = new ChooseDateForm();
 
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 DataSheet ds = this.DataFeed.GetDataSheet(Shared.DATASHEET_RUN_CONTROL_NAME);
-                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MAX_TIMESTEP_COLUMN_NAME, f.DateTime);
+                ds.SetSingleRowData(Shared.DATASHEET_RUN_CONTROL_MAX_TIMESTEP_COLUMN_NAME, Shared.NormalizeDateTime(f.DateTime));
                 this.RefreshBoundControls();
             }
         }

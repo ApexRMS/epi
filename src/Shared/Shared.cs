@@ -1,6 +1,7 @@
 ﻿// epi: SyncroSim Base Package for modeling epidemic infections and deaths.
 // Copyright © 2007-2020 Apex Resource Management Solutions Ltd. (ApexRMS). All rights reserved.
 
+using System;
 using System.Globalization;
 
 namespace SyncroSim.Epi
@@ -44,6 +45,11 @@ namespace SyncroSim.Epi
         public static void ThrowEpidemicException(string message, params object[] args)
         {
             throw new EpidemicException(string.Format(CultureInfo.InvariantCulture, message, args));
+        }
+
+        public static DateTime NormalizeDateTime(DateTime dt)
+        {
+            return new DateTime(dt.Year, dt.Month, dt.Day);
         }
     }
 }
