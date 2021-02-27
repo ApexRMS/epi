@@ -63,9 +63,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(14, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 17);
+            this.label3.Size = new System.Drawing.Size(70, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Realizations:";
+            this.label3.Text = "Iterations:";
             // 
             // TextBoxMaxIterations
             // 

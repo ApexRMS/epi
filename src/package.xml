@@ -74,17 +74,17 @@
                 <column name="DataSummaryID" dataType="Integer" isPrimary="True"/>
                 <column name="ScenarioID" displayName="Scenario" dataType="Integer"/>
                 <column name="Iteration" dataType="Integer" isOptional="True"/>
-                <column name="Timestep" displayName="Date" dataType="Date" validationType="Date" isOptional="True"/>                
-                <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False"/>               
+                <column name="Timestep" displayName="Date" dataType="Date" validationType="Date" isOptional="True"/>
+                <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False"/>
                 <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False"/>
                 <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True"/>
                 <column name="AgeMax" displayName="Age Max" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True"/>
-                <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isOptional="True"/>              
+                <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isOptional="True"/>
                 <column name="Value" dataType="Double" allowDbNull="False"/>
               </columns>
             </datasheet>
           </datasheets>
-        </datafeed>       
+        </datafeed>
       </datafeeds>
     </transformer>
   </transformers>
@@ -102,22 +102,26 @@
       <group name="Pipeline">
         <item name="core_Transformer"/>
         <item name="core_StageName"/>
-        <item name="core_StageValue"/>        
+        <item name="core_StageValue"/>
       </group>
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
-      <item name="RunControl"/>
-      <item name="DataSummary"/>             
-      <group name="Other">       
+      <item name="DataSummary" displayName="Data"/>
+      <group name="RunControl" displayName="Run Control">
+        <item name="RunControl" displayName="Settings"/>  
+        <item name="core_Pipeline"/>          
       </group>
-      <item name="core_Pipeline"/>  
+      <group name="Models">
+      </group>
+      <group name="Sources">
+      </group>
     </layout>
     <layout name="coreforms_ResultTransformers">
       <item name="corestime_ChartTransformer"/>
     </layout>
     <layout name="corestimeforms_Charts" configurationSheet="RunControl" xAxisLabelFormat="MMM-dd">
       <group name="Variables" dataSheet="DataSummary" filter="Jurisdiction">
-        <item name="Variable" dataSheet="DataSummary" column="Value" variableSourceColumn="Variable" prefixFolderName="False"/>        
+        <item name="Variable" dataSheet="DataSummary" column="Value" variableSourceColumn="Variable" prefixFolderName="False"/>
       </group>
     </layout>
   </layouts>
