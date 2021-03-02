@@ -23,8 +23,10 @@
                 <column name="IsInternal" dataType="Boolean" isVisible="False"/>
               </columns>
               <defaultRecords>
-                <record columns="Name|IsInternal" values="Cases|-1"/>
-                <record columns="Name|IsInternal" values="Deaths|-1"/>
+                <record columns="Name|IsInternal" values="Cases - Daily|-1"/>
+                <record columns="Name|IsInternal" values="Cases - Cumulative|-1"/>                
+                <record columns="Name|IsInternal" values="Deaths - Daily|-1"/>
+                <record columns="Name|IsInternal" values="Deaths - Cumulative|-1"/>                
                 <record columns="Name|IsInternal" values="Population|-1"/>
               </defaultRecords>
             </datasheet>
@@ -106,11 +108,11 @@
       </group>
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
-      <item name="DataSummary" displayName="Data"/>
       <group name="RunControl" displayName="Run Control">
-        <item name="RunControl" displayName="Settings"/>  
+        <item name="RunControl" displayName="General"/>  
         <item name="core_Pipeline"/>          
-      </group>
+      </group>      
+      <item name="DataSummary" displayName="Data"/>
       <group name="Models">
       </group>
       <group name="Sources">
@@ -121,7 +123,7 @@
     </layout>
     <layout name="corestimeforms_Charts" configurationSheet="RunControl" xAxisLabelFormat="yyyy-MMM-dd">
       <group name="Variables" dataSheet="DataSummary" filter="Jurisdiction">
-        <item name="Variable" dataSheet="DataSummary" column="Value" variableSourceColumn="Variable" prefixFolderName="False"/>
+        <item name="Variable" dataSheet="DataSummary" column="Value" variableSourceColumn="Variable"/>
       </group>
     </layout>
   </layouts>
