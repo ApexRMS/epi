@@ -71,7 +71,7 @@
         </datafeed>
         <datafeed name="DataSummary" displayName="Summary Data" dataScope="Scenario">
           <datasheets>
-            <datasheet name="DataSummary" displayName="Summary Data">
+            <datasheet name="DataSummary" displayName="Summary Data" viewFilterColumn="Variable">
               <columns>
                 <column name="DataSummaryID" dataType="Integer" isPrimary="True"/>
                 <column name="ScenarioID" displayName="Scenario" dataType="Integer"/>
@@ -129,5 +129,6 @@
   </layouts>
   <views>
     <view name="RunControlDataFeedView" target="RunControl" className="SyncroSim.Epi.RunControlDataFeedView" classAssembly="SyncroSim.Epi"/>
+    <view name="DataSummaryDataFeedView" target="DataSummary" className="SyncroSim.Core.Forms.FilteredDataFeedView" classAssembly="SyncroSim.Core.Forms"/>    
   </views>
 </package>
