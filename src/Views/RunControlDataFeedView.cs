@@ -22,8 +22,8 @@ namespace SyncroSim.Epi
             DataFeedView v = this.Session.CreateMultiRowDataFeedView(this.Scenario, this.ControllingScenario);
             this.PanelJurisdictions.Controls.Add(v);
 
-            NativeMethods.SendMessage(this.TextBoxStartDate.Handle, NativeMethods.EM_SETCUEBANNER, 0, Shared.CUE_BANNER_DATE);
-            NativeMethods.SendMessage(this.TextBoxEndDate.Handle, NativeMethods.EM_SETCUEBANNER, 0, Shared.CUE_BANNER_DATE);
+            NativeMethods.SendMessage(this.TextBoxStartDate.Handle, NativeMethods.EM_SETCUEBANNER, IntPtr.Zero, Shared.CUE_BANNER_DATE);
+            NativeMethods.SendMessage(this.TextBoxEndDate.Handle, NativeMethods.EM_SETCUEBANNER, IntPtr.Zero, Shared.CUE_BANNER_DATE);
 
             int h = this.TextBoxStartDate.Height;
             this.ButtonStartDate.Size = new System.Drawing.Size(h, h);
