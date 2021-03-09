@@ -93,7 +93,6 @@
     <Compile Include="Forms\ChooseDateForm.Designer.cs">
       <DependentUpon>ChooseDateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSheets\VariableDataSheet.cs" />
     <Compile Include="Model\PrimaryTransformer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

@@ -14,21 +14,13 @@
       <datafeeds>
         <datafeed name="Variable" displayName="Variables" dataScope="Project">
           <datasheets>
-            <datasheet name="Variable" displayName="Variables" valueMember="VariableID" displayMember="Name" filter="IsInternal IS NULL OR IsInternal=0" className="SyncroSim.Epi.VariableDataSheet" classAssembly="SyncroSim.Epi">
+            <datasheet name="Variable" displayName="Variables" valueMember="VariableID" displayMember="Name">
               <columns>
                 <column name="VariableID" dataType="Integer" isPrimary="True"/>
                 <column name="ProjectID" dataType="Integer"/>
                 <column name="Name" dataType="String"/>
                 <column name="Description" dataType="String"/>
-                <column name="IsInternal" dataType="Boolean" isVisible="False"/>
               </columns>
-              <defaultRecords>
-                <record columns="Name|IsInternal" values="Cases - Daily|-1"/>
-                <record columns="Name|IsInternal" values="Cases - Cumulative|-1"/>                
-                <record columns="Name|IsInternal" values="Deaths - Daily|-1"/>
-                <record columns="Name|IsInternal" values="Deaths - Cumulative|-1"/>                
-                <record columns="Name|IsInternal" values="Population|-1"/>
-              </defaultRecords>
             </datasheet>
           </datasheets>
         </datafeed>
