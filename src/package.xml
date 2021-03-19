@@ -113,7 +113,7 @@
     <layout name="coreforms_ResultTransformers">
       <item name="corestime_ChartTransformer"/>
     </layout>
-    <layout name="corestimeforms_Charts" configurationSheet="RunControl" xAxisLabelFormat="yyyy-MMM">
+    <layout name="corestimeforms_Charts" configurationSheet="RunControl" options="xAxisLabelFormat=yyyy-MMM|noDataAsZero=False">
       <group name="Variables" dataSheet="DataSummary" filter="Jurisdiction">
         <item name="Variable" dataSheet="DataSummary" column="Value" variableSourceColumn="Variable"/>
       </group>
