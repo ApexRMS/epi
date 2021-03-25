@@ -106,6 +106,7 @@
     <Compile Include="Shared\Exceptions.cs" />
     <Compile Include="Shared\NativeMethods.cs" />
     <Compile Include="Shared\Shared.cs" />
+    <Compile Include="Updates\Updates.cs" />
     <Compile Include="Views\RunControlDataFeedView.cs">
       <SubType>UserControl</SubType>
     </Compile>

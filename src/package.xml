@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="epi" displayName="Epidemic Base Package" version="1.0.4">
+<package name="epi" displayName="Epidemic Base Package" version="1.0.5">
   <transformers>
     <transformer
       name="Primary"
@@ -66,11 +66,12 @@
             <datasheet name="DataSummary" displayName="Summary Data" viewFilterColumn="Variable">
               <columns>
                 <column name="DataSummaryID" dataType="Integer" isPrimary="True"/>
-                <column name="ScenarioID" displayName="Scenario" dataType="Integer"/>
-                <column name="Iteration" dataType="Integer" isOptional="True"/>
-                <column name="Timestep" displayName="Date" dataType="Date" validationType="Date" isOptional="True"/>
-                <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False"/>
-                <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False"/>
+                <column name="ScenarioID" displayName="Scenario" dataType="Integer" isCompositeIndex="True"/>
+                <column name="TransformerID" displayName="Transformer" dataType="Integer" validationType="Datasheet" formula1="core_Transformer" isCompositeIndex="True"/>                
+                <column name="Iteration" dataType="Integer" isOptional="True" isCompositeIndex="True"/>
+                <column name="Timestep" displayName="Date" dataType="Date" validationType="Date" isOptional="True" isCompositeIndex="True"/>
+                <column name="Variable" dataType="Integer" validationType="Datasheet" formula1="Variable" allowDbNull="False" isCompositeIndex="True"/>
+                <column name="Jurisdiction" dataType="Integer" validationType="Datasheet" formula1="Jurisdiction" allowDbNull="False" isCompositeIndex="True"/>
                 <column name="AgeMin" displayName="Age Min" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True"/>
                 <column name="AgeMax" displayName="Age Max" dataType="Integer" validationType="WholeNumber" validationCondition="GreaterEqual" formula1="0" isOptional="True"/>
                 <column name="Sex" dataType="Integer" validationType="List" formula1="0:Male|1:Female" isOptional="True"/>
@@ -101,9 +102,9 @@
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
       <group name="RunControl" displayName="Run Control">
-        <item name="RunControl" displayName="General"/>  
-        <item name="core_Pipeline"/>          
-      </group>      
+        <item name="RunControl" displayName="General"/>
+        <item name="core_Pipeline"/>
+      </group>
       <item name="DataSummary" displayName="Data"/>
       <group name="Models">
       </group>
@@ -121,6 +122,12 @@
   </layouts>
   <views>
     <view name="RunControlDataFeedView" target="RunControl" className="SyncroSim.Epi.RunControlDataFeedView" classAssembly="SyncroSim.Epi"/>
-    <view name="DataSummaryDataFeedView" target="DataSummary" className="SyncroSim.Core.Forms.FilteredDataFeedView" classAssembly="SyncroSim.Core.Forms"/>    
+    <view name="DataSummaryDataFeedView" target="DataSummary" className="SyncroSim.Core.Forms.FilteredDataFeedView" classAssembly="SyncroSim.Core.Forms"/>
   </views>
+  <updateProvider
+    schemaVersion="1"
+    minPackageVersion="1.0.5"
+    className="SyncroSim.Epi.Updates"
+    classAssembly="SyncroSim.Epi">
+  </updateProvider>
 </package>
