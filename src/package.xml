@@ -77,7 +77,6 @@
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
       <item name="core_Pipeline"/>      
-      <item name="DataSummary" displayName="Data Summary"/>
       <group name="Models">
       </group>
       <group name="Sources">
