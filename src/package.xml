@@ -79,7 +79,7 @@
       <item name="core_Pipeline"/>      
       <group name="Models">
       </group>
-      <group name="Sources" displayName="Data Sources">
+      <group name="Sources">
       </group>
     </layout>
     <layout name="coreforms_ResultTransformers">
