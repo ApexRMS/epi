@@ -92,11 +92,12 @@ if (debug) {
 if (!useUI) {
   # Run the regression directly if not using Windows UI
   resultsScenarioReg <- run(myScenarioReg, jobs=6)
+
+  # Generate datasheet names - for developer use
+  datasheetReference <- datasheet(myScenarioReg)
+
+  # Review regression model results
+  epiDataSummary = datasheet(resultsScenarioReg, name="epi_DataSummary")
 }
 
-# Review regression model results  ----------
-
-# Generate datasheet names - for developer use
-datasheetReference <- datasheet(myScenarioReg)
-epiDataSummary = datasheet(resultsScenarioReg, name="epi_DataSummary")
 
