@@ -7,7 +7,7 @@ library(rsyncrosim)
 # Set script variables  -----------
 
 # Set how to run the script
-rebuild = F  # Set to TRUE to rebuild library from scratch; otherwise re-runs regression only
+rebuild = T  # Set to TRUE to rebuild library from scratch; otherwise re-runs regression only
 debug = F  # Set to TRUE to launch regression in RStudio
 useUI = F  # Set to TRUE to use Windows UI to run regression
 
@@ -33,8 +33,7 @@ if (rebuild) {
   # # Get a handle on the scenario's project
   # myProject <- project(myScenarioData)
   
-  # Generate various reference lists - for developer reference in RStudio only
-  datasheetReference <- datasheet(myScenarioData)
+  # Generate Stage Names - for developer reference in RStudio only
   stageReference <- datasheet(myScenarioData, "core_StageName")
   
   # Set the pipeline for the data scenario
@@ -73,7 +72,7 @@ if (rebuild) {
   myScenarioReg <- scenario(myLibrary, "Regression Model")
 }
 
-# Generate regression model scenario  ----------
+# Generate & run regression model scenario  ----------
 
 # Set the inputs for the regression
 myData = data.frame(
@@ -94,3 +93,10 @@ if (!useUI) {
   # Run the regression directly if not using Windows UI
   resultsScenarioReg <- run(myScenarioReg, jobs=6)
 }
+
+# Review regression model results  ----------
+
+# Generate datasheet names - for developer use
+datasheetReference <- datasheet(myScenarioReg)
+epiDataSummary = datasheet(resultsScenarioReg, name="epi_DataSummary")
+
