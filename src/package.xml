@@ -77,11 +77,11 @@
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">
       <item name="core_Pipeline"/>      
-      <group name="Models">
-      </group>
       <group name="Sources">
       </group>
-      <group name="DataTransformations" displayName="Data Transformations">
+      <group name="Transformations">
+      </group>
+      <group name="Models">
       </group>
     </layout>
     <layout name="coreforms_ResultTransformers">
