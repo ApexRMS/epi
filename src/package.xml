@@ -7,7 +7,8 @@
       displayName="Epidemic"
       className="SyncroSim.Core.NOOPTransformer"
       classAssembly="SyncroSim.Core"
-      isDateTimeBased="True">
+      isDateTimeBased="True" 
+      isPipelineBased="True">
       <include>
         <transformer name="corestime_Runtime"/>
       </include>
@@ -69,14 +70,8 @@
     <layout name="coreforms_ProjectDatafeeds">
       <item name="Variable"/>
       <item name="Jurisdiction"/>
-      <group name="Pipeline">
-        <item name="core_Transformer"/>
-        <item name="core_StageName"/>
-        <item name="core_StageValue"/>
-      </group>
     </layout>
-    <layout name="coreforms_ScenarioDatafeeds">
-      <item name="core_Pipeline"/>      
+    <layout name="coreforms_ScenarioDatafeeds">    
       <group name="Sources">
       </group>
       <group name="Transformations">
