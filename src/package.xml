@@ -72,7 +72,7 @@
       <item name="Jurisdiction"/>
     </layout>
     <layout name="coreforms_ScenarioDatafeeds">    
-      <group name="Sources">
+      <group name="Sources" displayName="Data">
       </group>
       <group name="Transformations">
       </group>

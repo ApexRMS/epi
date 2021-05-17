@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<template
+  name="Canada"
+  displayName="Canada"
+  location="https://s3-us-west-2.amazonaws.com/apexrms.com.public/epi/Canada.zip"
+  liveUpdate="True">
+</template>
