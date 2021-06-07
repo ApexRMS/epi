@@ -15,7 +15,7 @@
       <datafeeds>
         <datafeed name="Variable" displayName="Variables" dataScope="Project">
           <datasheets>
-            <datasheet name="Variable" displayName="Variables" valueMember="VariableID" displayMember="Name">
+            <datasheet name="Variable" displayName="Variables" valueMember="VariableID" displayMember="Name" autoGroup="True">
               <columns>
                 <column name="VariableID" dataType="Integer" isPrimary="True"/>
                 <column name="ProjectID" dataType="Integer"/>
@@ -27,7 +27,7 @@
         </datafeed>
         <datafeed name="Jurisdiction" displayName="Jurisdictions" dataScope="Project">
           <datasheets>
-            <datasheet name="Jurisdiction" displayName="Jurisdictions" valueMember="JurisdictionID" displayMember="Name">
+            <datasheet name="Jurisdiction" displayName="Jurisdictions" valueMember="JurisdictionID" displayMember="Name" autoGroup="True">
               <columns>
                 <column name="JurisdictionID" dataType="Integer" isPrimary="True"/>
                 <column name="ProjectID" dataType="Integer"/>
