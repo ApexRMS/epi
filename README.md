@@ -12,6 +12,7 @@ At the core of our solution is our desktop SyncroSim software. Data and models p
 
 **Packages**: Add-on packages for the *epi* base package are created by model developers and data providers to do various specific tasks, such as downloading data and running models. Each package provides SyncroSim with two things: (1) an XML configuration file specifying the format of all the inputs and outputs required for a particular set of tasks, and (2) the actual code to be run in order to complete the tasks. For the pandemic forecasting system, a base *epi* package was first developed to standardize the structure and format of all epidemiological data. Add-on packages were then developed to do specific tasks, such as download data from various sources, transform data, and run alternative forecasting models.
 
-![Graphical user interface, table  Description automatically generated](file:///C:/Users/leona/AppData/Local/Temp/msohtmlclip1/01/clip_image003.png)
+![img](https://github.com/ApexRMS/epi/blob/main/images/packages.png)
 
  
+
