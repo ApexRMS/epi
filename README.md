@@ -6,7 +6,7 @@ This is the base package for epidemic forecasting in [SyncroSim](www.syncrosim.c
 
 At the core of our solution is our desktop SyncroSim software. Data and models provided by others online can be automatically downloaded on a regular schedule, while local data and models can also be added privately. Decision makers can then use these data and models to generate forecasts under alternative “what-if” future scenarios, and select a subset of these results to display both internally and online. All model inputs and outputs are stored in a common structure, allowing for direct comparison across datasets and models.
 
-![img](https://github.com/ApexRMS/epi/blob/main/images/architecture.png | width=100)
+![img](https://github.com/ApexRMS/epi/blob/main/images/architecture.png)
 
 
 
