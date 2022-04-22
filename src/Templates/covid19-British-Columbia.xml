@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<template
-  name="covid19-British-Columbia"
-  displayName="British Columbia"
-  location="https://s3-us-west-2.amazonaws.com/apexrms.com.public/epi/covid19-British-Columbia.zip"
-  liveUpdate="True">
-</template>
