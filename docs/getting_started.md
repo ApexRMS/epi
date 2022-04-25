@@ -13,10 +13,9 @@ This quickstart tutorial will introduce you to the basics of working with **Epi*
 * Creating a new Epi Library
 * Viewing model inputs and outputs
 
--zzz: what version of R does epi require? 
 ## **Step 1: Install Epi**
 **Epi** is a Package within the <a href="https://syncrosim.com/download/" target="_blank">Syncrosim</a> simulation modeling framework; as such, **Epi** requires that the **SyncroSim** software be installed on your computer. Download and install <a href="https://syncrosim.com/download/" target="_blank">**the latest version of SyncroSim**</a> here. If you choose to run **Epi**, you will also need to install <a href="https://www.r-project.org/" target="_blank">R version 4.0.0</a> or higher, and the add-on package, <a href="https://github.com/ApexRMS/epiModelVocVaccine" target="_blank">epiModelVocVaccine</a>.
-> **Note:** The **Epi** package includes a template Library, **covid19-example.ssim**, that contains example inputs and outputs. Installation of R or the add-on epiModelVocVaccine package is not required to view the template Library.
+> **Note:** The **Epi** package includes a template Library, **covid19-example.ssim**, that contains example inputs and outputs. Installation of R and the add-on epiModelVocVaccine package is not required to view the template Library.
 
 Once all required programs are installed, open **SyncroSim**, select **File -> Packages... -> Install...**, select the **epi** package and click OK.
 
@@ -83,5 +82,5 @@ Each of these three Scenarios have already been run and contain corresponding **
 This adds output data from the selected Results Scenarios to the **Cases** Chart in the window below the Library Explorer. Double click on the **Cases** Chart to view the run results.   
 <br>
 <img align="middle" style="padding: 3px" width="680" src="assets/images/screencap-10.png">
-<br>
-> **Note:** Because there was no model listed in the Pipeline datasheet for the Data Scenario, the output contained in the corresponding Result Scenario is identical to the input data. Running this Scenario allows us to add the input data to a chart, which lets us compare historical COVID-19 cases to future projections under different scenarios.
+
+>**Note:** Data can be downloaded and smoothed from within Syncrosim using the Epi Base Package, along with two additional add-on Packages - the <a href="https://github.com/ApexRMS/epiDataWorld" target="_blank">**epiDataWorld**</a> Package and the <a href="https://github.com/ApexRMS/epiTransform" target="_blank">**epiTransform**</a> Package. If you would like to download the latest available COVID-19 data to generate your own forecasts, download and install both of these packages following the same steps described above for installing the Epi Base Package.  
