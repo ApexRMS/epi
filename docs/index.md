@@ -7,7 +7,7 @@ permalink: /
 
 # **Epi** SyncroSim Package
 <img align="right" style="padding: 13px" width="180" src="assets/images/logo/epi-sticker-3.png">
-[GitHub release][(https://img.shields.io/github/v/release/ApexRMS/epi.svg?style=for-the-badge&color=d68a06)](https://GitHub.com/ApexRMS/epi/releases/)    <a href="https://github.com/ApexRMS/epi"><img align="middle" style="padding: 1px" width="30" src="assets/images/logo/github-trans2.png">
+[![GitHub release](https://img.shields.io/github/v/release/ApexRMS/epi.svg?style=for-the-badge&color=d68a06)](https://GitHub.com/ApexRMS/epi/releases/)    <a href="https://github.com/ApexRMS/epi"><img align="middle" style="padding: 1px" width="30" src="assets/images/logo/github-trans2.png">
 <br>
 ## Model of epidemic infections and deaths
 ### *Epi* is an open-source [SyncroSim](https://syncrosim.com/){:target="_blank"} Base Package that provides a general framework for developing scenario-based stochastic models of future daily epidemic infections and deaths.
