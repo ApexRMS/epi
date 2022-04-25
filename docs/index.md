@@ -21,7 +21,7 @@ The modeling framework behind **Epi** is general enough that it may be applied t
 
 ## Requirements
 
-This package requires Syncrosim [version 2.2.27](https://syncrosim.com/download/){:target="_blank"}.
+This package requires [the latest version](https://syncrosim.com/download/){:target="_blank"} of SyncroSim.
 <br>
 <br>
 ## How to Install
