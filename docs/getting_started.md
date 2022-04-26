@@ -51,21 +51,16 @@ This opens the Scenario Properties window. The first tab in this window, called 
 <br>
 <img align="middle" style="padding: 3px" width="680" src="assets/images/screencap-3.png">
 <br>
-The **Data - All Data** datasheet contains data of daily and cumulative COVID-19 cases for 195 countries from 2020-01-22 to 2021-06-29. These data were downloaded from the Johns Hopkins University COVID-19 Database and have been smoothed to remove seasonal effects. 
+The **Data - All Data** datasheet contains data of daily and cumulative COVID-19 cases for 195 countries from 2020-01-22 to 2021-06-29. These data were downloaded from the <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank">Johns Hopkins University COVID-19 Data Repository</a> and have been smoothed to remove seasonal effects. 
 <br>
 <img align="middle" style="padding: 3px" width="680" src="assets/images/screencap-4.png">
 <br>
->**Note:** Data can be downloaded and smoothed from within Syncrosim using the Epi Base Package, along with two additional add-on Packages - the **World COVID-19 Data** Package and the **Remove Seasonal Effects** Package. If you would like to download the latest available COVID-19 data to generate your own forecasts, download and install both of these packages following the same steps described above for installing the Epi Base Package.  
 
-Open the **Forecast - Status Quo** Scenario and navigate to **Pipeline** under the **General** tab. This is where any models that the input data will be passed to is listed. In this case, only one model is listed - the **VOC + Vaccine Model: Run Model**. 
-<br>
-<img align="middle" style="padding: 3px" width="680" src="assets/images/screencap-5.png">
-<br>
-Next, click on the **Models** tab and navigate to **Run Settings** under the **Inputs** drop-down. This is where parameters for the **VOC + Vaccine Model: Run Model** are defined. 
+Open the **Forecast - Status Quo** Scenario. Click on the **Models** tab and navigate to **Run Settings** under the **Inputs** drop-down. This is where parameters for the **VOC + Vaccine Model: Run Model** are defined. 
 <br>
 <img align="middle" style="padding: 3px" width="680" src="assets/images/screencap-6.png">
 <br>
-Further down in the **Inputs** drop-down menu is the datasheet, **Vaccination Rates**. This datasheet contains historic rates of vaccination beginning in 2020-12-29, as well as current and future rates (relative to the data provided in this template library). 
+Further down in the **Inputs** drop-down menu is the datasheet, **Vaccination Rates**. This datasheet contains historic rates of vaccination beginning in 2020-12-29, as well as current and future rates. 
 <br>
 <img align="middle" style="padding: 3px" width="600" src="assets/images/screencap-7.png">
 <br>
@@ -83,4 +78,3 @@ This adds output data from the selected Results Scenarios to the **Cases** Chart
 <br>
 <img align="middle" style="padding: 3px" width="680" src="assets/images/screencap-10.png">
 
->**Note:** Data can be downloaded and smoothed from within Syncrosim using the Epi Base Package, along with two additional add-on Packages - the <a href="https://github.com/ApexRMS/epiDataWorld" target="_blank">**epiDataWorld**</a> Package and the <a href="https://github.com/ApexRMS/epiTransform" target="_blank">**epiTransform**</a> Package. If you would like to download the latest available COVID-19 data to generate your own forecasts, download and install both of these packages following the same steps described above for installing the Epi Base Package.  
