@@ -15,7 +15,6 @@ permalink: /
 
 The **Epi** package framework has been developed to produce real-time forecasts of infections and deaths that can be rapidly deployed for use anywhere in the world. Built upon the [SyncroSim](https://syncrosim.com/){:target="_blank"} software platform, **Epi** takes as input a time series of real-time reported case and death data along with different modeling approaches for forecasting and scenario analyses. **Epi** uses the latest source control techniques, allowing for continuous adaptions and improvements to be applied to the framework’s underlying models as understanding of diseases and viruses evolves over time.
 
-<img align="right" style="padding: 15px" width="400" src="assets/images/epi-screen-cap.png">
 
 The modeling framework behind **Epi** is general enough that it may be applied to any jurisdiction and any disease. As such, the framework allows decision makers to assess and compare alternative model projections for local accuracy and relevance, thus building confidence over time in their forecasts. Furthermore, the **Epi** framework provides policy makers with the flexibility to introduce their own local “what-if” scenarios regarding the effects of possible future changes to public health measures. The result is a tool that generates locally responsive, meaningful, and ultimately actionable forecasts.
 
