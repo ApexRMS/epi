@@ -25,9 +25,7 @@ This package requires [the latest version](https://syncrosim.com/download/){:tar
 <br>
 ## How to Install
 
-Open SyncroSim and select **File -> Packages… -> Install…**, then select the **epi** package and click OK.
-
-Alternatively, download [the latest release from GitHub](https://github.com/ApexRMS/epi/releases/){:target="_blank"}. Open SyncroSim and select File -> Packages… -> Install From File…, then navigate to the downloaded package file with the extension *.ssimpkg*.
+For installation instructions, see the **Install Epi** section on the [Getting Started](https://apexrms.github.io/epi/getting_started.html){:target="_blank"} page.
 <br>
 <br>
 ## Getting Started
