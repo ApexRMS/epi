@@ -5,6 +5,7 @@ Release/
 x86/
 x64/
 .vs/
+src/.metadata
 *.user
 *.dll
 *.pdb
