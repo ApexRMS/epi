@@ -80,7 +80,7 @@ This adds model outputs from the selected Results Scenarios to the **Cases** Cha
 <img align="middle" style="padding: 3px" width="680" src="assets/images/screencap-10.png">
 
 ## **Step 4: Running the model**
-In order to run the model, SyncroSim needs the location of your R executable, which will be found automatically. To check, double-click on the **Covid-19 Example** Library and navigate to the **R Configuration** tab. Here you should see the file path to your R executable listed as the Default path. If not, click **Browse...** and navigate to the correct file location.
+In order to run the model, SyncroSim needs the file path of your R executable. To verify the Default file path, double-click on the **Covid-19 Example** Library and navigate to the **R Configuration** tab. To override the Default file path, click **Browse...** and navigate to the correct file location.
 <br>
 <img align="middle" style="padding: 3px" width="600" src="assets/images/screencap-11.png">
 <br>
@@ -88,6 +88,4 @@ Once your **Covid-19 Example** Library is configured, you can run the model by r
 <br>
 <img align="middle" style="padding: 3px" width="600" src="assets/images/screencap-12.png">
 <br>
-Repeat the steps above to run the **Forecast - Additional Vaccines** Scenario. If you'd like to visualize the raw data against the model outputs of the two vaccination scenarios, follow the same steps to run the **Data** Scenario. 
-
-When a Scenario is run, a new **Results Scenario** will appear in the corresponding **Results** folder. To view the results, select the Results Scenario in the Library Explorer and choose **Add to Results** from the Scenario menu. The selected Scenario will appear in **bold** in the Library Explorer and the Scenario results will display in the Cases Chart.
+Repeat the steps above to run the **Forecast - Additional Vaccines** Scenario.
