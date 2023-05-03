@@ -79,22 +79,21 @@ namespace SyncroSim.Epi
             store.ExecuteNonQuery("DROP TABLE TEMP_TABLE");
 
             //Index
-            CreateIndex(store, "epi_DataSummary", new string[] {
+            UpdateProvider.CreateIndex(store, "epi_DataSummary", new string[] {
                 "ScenarioID", "TransformerID", "Iteration", "Timestep", "Variable", "Jurisdiction" });
         }
 
         /// <summary>
         /// EpiUpdate_0002
         /// 
-        /// This update changes the variable names in the corstime_Chart.Criteria column to use the 
-        /// variable name ("epi_Variable") instead of the group name ("epi_Variables"). This change
-        /// is required because selecting diaggregate and include data by group is no longer supported
-        /// as of SyncroSim v2.4.27.
+        /// This update changes the variable names in the corstime_Chart "Criteria" column(s) to use the 
+        /// variable name instead of the group name. This change is required because selecting disaggregate 
+        /// and include data by group is no longer supported as of SyncroSim v2.4.27.
         /// </summary>
         /// <param name="store"></param>
         private static void EpiUpdate_0002(DataStore store)
         {
-            RemoveChartGroupCriteria(store, "epi_Variables");
+            UpdateProvider.RemoveChartGroupCriteria(store, "epi_Variables", "epi_Variable");
         }
     }
 }
