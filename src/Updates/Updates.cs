@@ -93,7 +93,10 @@ namespace SyncroSim.Epi
         /// <param name="store"></param>
         private static void EpiUpdate_0002(DataStore store)
         {
-            UpdateProvider.RemoveChartGroupCriteria(store, "epi_Variables", "epi_Variable");
+            UpdateProvider.RemoveChartGroupCriteria(store, new[]
+            {
+                "epi_Variables|epi_Variable"
+            });
         }
     }
 }
