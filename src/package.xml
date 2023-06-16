@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="epi" displayName="Model of epidemic infections and deaths" version="1.1.3" url="https://apexrms.github.io/epi/">
+<package name="epi" displayName="Model of epidemic infections and deaths" version="1.2.0" minSyncroSimVersion="2.5.0" url="https://apexrms.github.io/epi/">
   <transformers>
     <transformer
       name="Primary"
@@ -84,8 +84,8 @@
       <item name="corestime_ChartTransformer"/>
     </layout>
     <layout name="corestimeforms_Charts" options="noDataAsZero=False">
-      <group name="Variables" dataSheet="DataSummary" filter="Jurisdiction">
-        <item name="Variable" dataSheet="DataSummary" column="Value" variableSourceColumn="Variable"/>
+      <group name="Variables">
+        <item name="Variable" dataSheet="DataSummary" column="Value" filter="Jurisdiction" variableSourceColumn="Variable"/>
       </group>
     </layout>
   </layouts>
@@ -97,8 +97,8 @@
       classAssembly="SyncroSim.Core.Forms"/>
   </views>
   <updateProvider
-    schemaVersion="1"
-    minPackageVersion="1.0.5"
+    schemaVersion="2"
+    minPackageVersion="1.2.0"
     className="SyncroSim.Epi.Updates"
     classAssembly="SyncroSim.Epi">
   </updateProvider>
